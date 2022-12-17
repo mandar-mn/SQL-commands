@@ -1,0 +1,47 @@
+Name - Mandar Manish Ghaisas.
+Roll no - 220940325041
+
+
+Q1) What is difference between truncate , delete , drop ?
+Ans - The drop command drops the whole table from database it means it deletes all the data , constraints and indexes. It is DDL command.
+	The delete command deletes the particular row or rows from table depending upon the where commands. It is DML command. Delete do not delete the table from database it just deletes the rows in it and it maintains log file of it.
+The truncate command deletes all the records from table and it does not delete the whole table from database it is still there but what is does is it removes all the records from it and keeps rows in it with name of columns. Truncate is DDL command.
+
+
+
+Q2) What are alias in mysql?
+Ans - Alias in SQL is used to give temporary name to table or column for ease of readability.
+It used using word AS. It is temporary name only exists until duration of query.
+
+
+
+Q3) How do you remove duplicates from table (distinct and other way)
+Ans -   1]USING distinct function
+ SELECT DISTINCT ‘column name’ FROM ‘table name’;
+
+	2] Using rank function
+		SELECT * RANK() OVER PARTITIONED BY ‘column names’ FROM ‘table name’ ;
+
+
+
+
+Q4) How do you display even rows of a table?
+Ans - We can use modulus function from maths we can take mod of column by 2 and can sort out odd and even data.
+
+SELECT * FROM ‘table name’ WHERE mod(‘column name’,2) =0;
+
+
+
+
+
+
+
+
+
+
+Q5) How you can find fifth max salary?
+Ans - We can use rank() function 2) we can use limt function and 3) we can use dense rank function.
+
+SELECT * RANK() OVER (PARTITIONED BY  ‘column name’ ORDER BY ‘column name’) r FROM ‘table name’ WHERE r=5;
+SELECT * FROM ORDER BY ‘column name’ DESC LIMIT 5,1;
+SELECT * FROM ‘table name’ OVER (ORDER BY ‘column name’),4 FROM ‘table name’;
